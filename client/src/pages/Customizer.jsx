@@ -13,6 +13,7 @@ import {
   FilePicker,
   Tab
 } from '../components';
+import development from '../config/config';
 
 function Customizer() {
   const snap = useSnapshot(state);
@@ -58,7 +59,7 @@ function Customizer() {
       setGeneratingImg(true);
 
       const response = await fetch(
-        'https://shirt-three.onrender.com/api/v1/dalle',
+        development.development.backendUrl,
         {
           method: 'POST',
           headers: {
@@ -154,8 +155,16 @@ function Customizer() {
               type="filled"
               title="Go Back"
               handleClick={() => (state.intro = true)}
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+              customStyles="w-fit px-4 py-2.5 font-bold text-sm mr-2"
             />
+
+            <a
+              type="filled"
+              title="Find Pictures"
+              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+              href='https://react-gallery-app-indol.vercel.app/'
+              target='_blank'
+            > Find Pictures </a>
           </motion.div>
 
           <motion.div
